@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>출산·양육 취득세 감면 자가진단 | 남양주시</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:   #1a5c3a;
+      --green-mid:    #2e7d52;
+      --green-light:  #e8f4ee;
+      --green-pale:   #f4faf6;
+      --accent:       #c8a84b;
+      --red-soft:     #c0392b;
+      --red-pale:     #fff5f4;
+      --gray-900:     #1a1a1a;
+      --gray-700:     #444;
+      --gray-400:     #999;
+      --gray-100:     #f5f5f5;
+      --white:        #ffffff;
+      --border:       #d9e8de;
+      --radius:       10px;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      background: #f0f4f1;
+      color: var(--gray-900);
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* ── 헤더 ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      color: var(--white);
+      padding: 36px 24px 32px;
+      text-align: center;
+    }
+    .page-header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-size: clamp(20px, 5vw, 28px);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+    .page-header h1 em {
+      font-style: normal;
+      color: #f5d87a;
+    }
+    .page-header .subtitle {
+      margin-top: 10px;
+      font-size: 13.5px;
+      font-weight: 300;
+      opacity: 0.88;
+      line-height: 1.6;
+    }
+    .law-ref {
+      margin-top: 16px;
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      opacity: 0.85;
+    }
+
+    /* ── 컨테이너 ── */
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ── 안내 박스 ── */
+    .intro-box {
+      background: var(--white);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 24px 0 20px;
+      font-size: 13.5px;
+      color: var(--gray-700);
+      line-height: 1.7;
+    }
+    .intro-box strong { color: var(--green-dark); }
+
+    /* ── 섹션 ── */
+    .section {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    }
+    .section-header {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 13px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-header .icon { font-size: 16px; }
+    .section-header h2 { font-size: 14.5px; font-weight: 600; }
+    .section-header .tag {
+      margin-left: auto;
+      background: rgba(255,255,255,0.15);
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+
+    .section-note {
+      background: #fff9e6;
+      border-top: 1px solid #f0e0a0;
+      padding: 10px 20px;
+      font-size: 12.5px;
+      color: #7a5f00;
+      line-height: 1.6;
+    }
+
+    /* ── 체크 아이템 ── */
+    .check-item {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px;
+      transition: background 0.15s;
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-item:hover { background: var(--green-pale); }
+
+    .item-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .item-num {
+      min-width: 28px;
+      height: 28px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .item-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--gray-900);
+      flex: 1;
+    }
+    .item-text .key { color: var(--green-dark); font-weight: 600; }
+
+    /* ── 버튼 ── */
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      padding-left: 42px;
+    }
+    .btn {
+      padding: 7px 22px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: all 0.18s;
+      letter-spacing: 0.02em;
+    }
+    .btn-yes {
+      background: var(--white);
+      border-color: var(--green-mid);
+      color: var(--green-mid);
+    }
+    .btn-yes:hover, .btn-yes.active {
+      background: var(--green-mid);
+      color: var(--white);
+    }
+    .btn-no {
+      background: var(--white);
+      border-color: #bbb;
+      color: var(--gray-700);
+    }
+    .btn-no:hover, .btn-no.active {
+      background: #e53935;
+      border-color: #e53935;
+      color: var(--white);
+    }
+
+    /* ── 이유 박스 ── */
+    .reason-box {
+      margin-top: 10px;
+      margin-left: 42px;
+      padding: 11px 14px;
+      background: var(--red-pale);
+      border-left: 3px solid #e53935;
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      color: #7a1a1a;
+      line-height: 1.65;
+      display: none;
+    }
+    .reason-box.show { display: block; }
+    .reason-box .reason-title {
+      font-weight: 600;
+      color: #c0392b;
+      margin-bottom: 4px;
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── 진행 바 ── */
+    .progress-wrap {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+    .progress-label span:last-child { color: var(--green-mid); font-weight: 600; }
+    .progress-bar {
+      height: 6px;
+      background: var(--green-light);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--green-mid), var(--accent));
+      border-radius: 3px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+
+    /* ── 결과 패널 ── */
+    .result-panel {
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 24px;
+      display: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .result-panel.show { display: block; }
+
+    .result-pass {
+      background: linear-gradient(135deg, #1a5c3a, #2e9e62);
+      color: var(--white);
+      padding: 28px 28px 24px;
+      text-align: center;
+    }
+    .result-pass .result-icon { font-size: 40px; margin-bottom: 10px; }
+    .result-pass h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .result-pass p { font-size: 14px; opacity: 0.9; line-height: 1.6; }
+
+    .result-fail {
+      background: linear-gradient(135deg, #7f1515, #c0392b);
+      color: var(--white);
+      padding: 28px 28px 24px;
+      text-align: center;
+    }
+    .result-fail .result-icon { font-size: 40px; margin-bottom: 10px; }
+    .result-fail h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .result-fail p { font-size: 14px; opacity: 0.9; line-height: 1.6; }
+
+    .result-caution {
+      background: linear-gradient(135deg, #7a5400, #c8a84b);
+      color: var(--white);
+      padding: 28px 28px 24px;
+      text-align: center;
+    }
+    .result-caution .result-icon { font-size: 40px; margin-bottom: 10px; }
+    .result-caution h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .result-caution p { font-size: 14px; opacity: 0.9; line-height: 1.6; }
+
+    .result-body {
+      background: var(--white);
+      padding: 20px 24px;
+    }
+    .result-body h3 {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .fail-list { list-style: none; }
+    .fail-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--gray-700);
+      line-height: 1.6;
+      display: flex;
+      gap: 8px;
+    }
+    .fail-list li:last-child { border-bottom: none; }
+    .fail-list li::before {
+      content: "✗";
+      color: #e53935;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .fail-list .fail-reason {
+      margin-top: 3px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    .next-steps {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: var(--green-pale);
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--green-dark);
+      line-height: 1.7;
+    }
+    .next-steps strong { font-weight: 600; }
+    .next-steps a {
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+
+    .disclaimer {
+      margin-top: 12px;
+      font-size: 11.5px;
+      color: var(--gray-400);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* ── 신청 안내 info-block ── */
+    .info-block {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .info-block-title {
+      background: var(--green-light);
+      padding: 9px 14px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .info-icon { font-size: 12px; }
+    .info-block-body {
+      padding: 10px 14px 6px;
+      font-size: 13.5px;
+      color: var(--gray-900);
+      line-height: 1.65;
+    }
+    .info-note {
+      background: #fff9e6;
+      border-top: 1px dashed #f0e0a0;
+      padding: 7px 14px 10px;
+      font-size: 12.5px;
+      color: #7a5f00;
+      line-height: 1.6;
+    }
+    .info-row {
+      display: flex;
+      gap: 10px;
+      padding: 8px 14px;
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .info-label {
+      min-width: 62px;
+      font-weight: 600;
+      color: var(--green-dark);
+      flex-shrink: 0;
+    }
+    .info-value { color: var(--gray-700); }
+    .info-sub { font-size: 12px; color: var(--gray-400); }
+
+    /* 구비서류 */
+    .doc-list {
+      padding: 8px 14px 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
+    }
+    .doc-item {
+      font-size: 13px;
+      color: var(--gray-700);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.5;
+    }
+    .doc-num {
+      font-weight: 700;
+      color: var(--green-dark);
+      flex-shrink: 0;
+    }
+    .doc-tag {
+      font-size: 11px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    /* 문의처 */
+    .contact-row {
+      padding: 9px 14px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .contact-dept {
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 2px;
+    }
+    .contact-tel { color: var(--gray-700); }
+    .contact-tel a {
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-tel a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .doc-list { grid-template-columns: 1fr; }
+    }
+
+    /* ── 초기화 버튼 ── */
+    .reset-btn {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 12px;
+      background: var(--gray-100);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--gray-700);
+      cursor: pointer;
+      transition: all 0.15s;
+      font-weight: 500;
+    }
+    .reset-btn:hover {
+      background: var(--white);
+      border-color: var(--green-mid);
+      color: var(--green-mid);
+    }
+
+    /* ── 푸터 ── */
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--gray-400);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 500px) {
+      .btn-group { flex-direction: row; padding-left: 38px; }
+      .btn { padding: 7px 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="badge">남양주시 취득세과</div>
+  <h1>출산·양육을 위한 주택 취득세<br><em>감면 대상 자가진단</em></h1>
+  <p class="subtitle">경정청구(환급 신청) 전, 아래 항목을 직접 확인해 보세요.</p>
+  <div class="law-ref">「지방세특례제한법」 제36조의5</div>
+</div>
+
+<div class="container">
+
+  <div class="intro-box">
+    아래 <strong>①~⑥ 항목을 모두 충족</strong>하는 경우 출산·양육 취득세 감면 경정청구(환급 신청)가 가능합니다.<br>
+    ⑦~⑧ 항목은 감면 후 <strong>의무사항</strong>으로, 위반 시 감면세액이 <strong>추징</strong>될 수 있습니다.
+  </div>
+
+  <!-- 진행 상황 -->
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>답변 진행 현황</span>
+      <span id="progress-text">0 / 8 완료</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- ① 감면 신청 자격 확인 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">✅</span>
+      <h2>감면 신청 자격 확인</h2>
+      <span class="tag">① ~ ⑥ 모두 "예" 필요</span>
+    </div>
+
+    <!-- 1번 -->
+    <div class="check-item" id="item-1">
+      <div class="item-top">
+        <div class="item-num">1</div>
+        <div class="item-text">
+          <span class="key">2024. 1. 1. 이후</span> 자녀를 출산하였습니까?
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-yes" onclick="answer(1, true)">예</button>
+        <button class="btn btn-no"  onclick="answer(1, false)">아니오</button>
+      </div>
+      <div class="reason-box" id="reason-1">
+        <div class="reason-title">감면 해당 없음</div>
+        본 감면제도는 <strong>2024. 1. 1. 이후 출생한 자녀</strong>에 대해서만 적용됩니다.
+        2023년 12월 31일 이전에 출산한 자녀의 경우 지특법 제36조의5의 적용 대상이 아닙니다.<br><br>
+        <span style="font-size:12px; color:#999;">
+        [적용 근거] 지특법(법률 제19862호, 2023. 12. 29.) 부칙 제5조는 제36조의5의 감면규정을
+        "<strong>이 법 시행(2024. 1. 1.) 이후 자녀를 출산한 경우</strong>부터 적용한다"고 규정하고 있어,
+        시행일 전 출생한 자녀에 대해서는 소급 적용이 되지 않습니다.
+        </span>
+      </div>
+    </div>
+
+    <!-- 2번 -->
+    <div class="check-item" id="item-2">
+      <div class="item-top">
+        <div class="item-num">2</div>
+        <div class="item-text">
+          해당 자녀와 <span class="key">상시 거주할 목적</span>으로 해당 주택을 취득하였습니까?
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-yes" onclick="answer(2, true)">예</button>
+        <button class="btn btn-no"  onclick="answer(2, false)">아니오</button>
+      </div>
+      <div class="reason-box" id="reason-2">
+        <div class="reason-title">감면 해당 없음</div>
+        취득세 감면은 해당 자녀와 <strong>상시 거주할 목적</strong>으로 취득한 주택에 한합니다.
+        투자·임대 목적이나 자녀와 무관한 목적으로 취득한 경우에는 감면이 적용되지 않습니다.
+      </div>
+    </div>
+
+    <!-- 3번 -->
+    <div class="check-item" id="item-3">
+      <div class="item-top">
+        <div class="item-num">3</div>
+        <div class="item-text">
+          해당 주택의 <span class="key">취득일이 2024. 1. 1. 이후</span>이면서,
+          자녀 출산일 <span class="key">전 1년 이내</span> 또는 출산일부터 <span class="key">5년 이내</span>에 취득하였습니까?
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-yes" onclick="answer(3, true)">예</button>
+        <button class="btn btn-no"  onclick="answer(3, false)">아니오</button>
+      </div>
+      <div class="reason-box" id="reason-3">
+        <div class="reason-title">감면 해당 없음</div>
+        다음 두 요건을 모두 충족해야 합니다.<br>
+        ① 주택 취득일이 <strong>2024. 1. 1. 이후</strong>일 것<br>
+        ② 주택 취득일이 자녀 출산일 <strong>전 1년 이내</strong> 또는 출산일부터 <strong>5년 이내</strong>일 것<br>
+        취득 시기가 이 범위를 벗어난 경우 감면 대상에 해당하지 않습니다.
+      </div>
+    </div>
+
+    <!-- 4번 -->
+    <div class="check-item" id="item-4">
+      <div class="item-top">
+        <div class="item-num">4</div>
+        <div class="item-text">
+          취득한 주택의 취득 당시 가액이 <span class="key">12억 원 이하</span>입니까?
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-yes" onclick="answer(4, true)">예</button>
+        <button class="btn btn-no"  onclick="answer(4, false)">아니오</button>
+      </div>
+      <div class="reason-box" id="reason-4">
+        <div class="reason-title">감면 해당 없음</div>
+        취득 당시 주택 가액이 <strong>12억 원을 초과</strong>하는 경우에는 감면이 적용되지 않습니다.
+        취득 당시 가액은 실제 취득가액(신고가액)을 기준으로 합니다.
+      </div>
+    </div>
+
+    <!-- 5번 -->
+    <div class="check-item" id="item-5">
+      <div class="item-top">
+        <div class="item-num">5</div>
+        <div class="item-text">
+          해당 주택이 취득 당시 <span class="key">1가구 1주택</span>에 해당하거나,
+          취득일부터 <span class="key">3개월 이내에 1가구 1주택</span>이 되었습니까?
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-yes" onclick="answer(5, true)">예</button>
+        <button class="btn btn-no"  onclick="answer(5, false)">아니오</button>
+      </div>
+      <div class="reason-box" id="reason-5">
+        <div class="reason-title">감면 해당 없음</div>
+        1가구 1주택 요건은 두 가지 방식으로 충족할 수 있습니다.<br>
+        ① 주택 <strong>취득 당시</strong> 이미 1가구 1주택인 경우<br>
+        ② 취득 당시에는 다주택이었더라도 취득일부터 <strong>3개월 이내</strong>에 1가구 1주택으로 된 경우<br>
+        3개월 내에도 1가구 1주택이 되지 않은 경우에는 감면에 해당하지 않습니다.
+      </div>
+    </div>
+
+    <!-- 6번 -->
+    <div class="check-item" id="item-6">
+      <div class="item-top">
+        <div class="item-num">6</div>
+        <div class="item-text">
+          해당 자녀에 대해 <span class="key">다른 주택으로 이미 동일 감면을 신청한 사실</span>이 없습니까?
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-yes" onclick="answer(6, true)">예</button>
+        <button class="btn btn-no"  onclick="answer(6, false)">아니오</button>
+      </div>
+      <div class="reason-box" id="reason-6">
+        <div class="reason-title">감면 해당 없음</div>
+        동일한 자녀에 대해 <strong>1회에 한하여</strong> 감면이 허용됩니다.
+        이미 다른 주택으로 해당 자녀에 대해 감면을 신청·적용받은 경우, 동일 자녀를 사유로 한 중복 감면은 불가합니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 감면 후 의무사항 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">⚠️</span>
+      <h2>감면 후 의무사항 확인</h2>
+      <span class="tag">미이행 시 추징 위험</span>
+    </div>
+    <div class="section-note">
+      ※ 아래 항목은 감면을 받은 이후에도 지속적으로 이행해야 하는 의무입니다.
+      "아니오"에 해당하는 경우 감면세액이 <strong>추징</strong>될 수 있으니 유의하시기 바랍니다.
+    </div>
+
+    <!-- 7번 -->
+    <div class="check-item" id="item-7">
+      <div class="item-top">
+        <div class="item-num">7</div>
+        <div class="item-text">
+          취득일(출산일 전에 주택을 취득한 경우에는 출산일)부터
+          <span class="key">3개월 이내에 해당 자녀와 상시 거주를 시작</span>하였습니까?
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-yes" onclick="answer(7, true)">예</button>
+        <button class="btn btn-no"  onclick="answer(7, false)">아니오</button>
+      </div>
+      <div class="reason-box" id="reason-7">
+        <div class="reason-title">추징 위험</div>
+        감면세액을 유지하려면 취득일(출산일 전 취득 시 출산일)부터 <strong>3개월 이내</strong>에
+        해당 자녀와 상시 거주를 시작해야 합니다.
+        이 기간 내 입주하지 않은 경우 감면세액이 추징될 수 있습니다.
+      </div>
+    </div>
+
+    <!-- 8번 -->
+    <div class="check-item" id="item-8">
+      <div class="item-top">
+        <div class="item-num">8</div>
+        <div class="item-text">
+          해당 자녀와의 상시 거주 기간이 <span class="key">3년 미만</span>인 상태에서
+          주택을 <span class="key">매각·증여하거나 임대 등 다른 용도로 사용한 사실이 없고</span>,
+          앞으로도 그러할 계획이 없습니까?
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-yes" onclick="answer(8, true)">예</button>
+        <button class="btn btn-no"  onclick="answer(8, false)">아니오</button>
+      </div>
+      <div class="reason-box" id="reason-8">
+        <div class="reason-title">추징 위험</div>
+        자녀와 <strong>3년간 계속 거주</strong>하지 않고 해당 주택을 매각·증여하거나 임대 등
+        다른 용도로 사용하는 경우, 감면받은 세액과 이자상당액 등이 함께 추징될 수 있습니다.
+        3년 의무거주 기간을 반드시 유지해야 합니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 결과 패널 -->
+  <div class="result-panel" id="result-panel">
+
+    <!-- 합격(신청 가능) -->
+    <div id="result-pass" style="display:none">
+      <div class="result-pass">
+        <div class="result-icon">🎉</div>
+        <h2>감면 신청 요건 충족</h2>
+        <p>모든 자격 요건을 충족합니다.<br>아래 안내에 따라 경정청구(환급 신청)를 진행하실 수 있습니다.</p>
+      </div>
+      <div class="result-body">
+
+        <!-- 신청 방법 -->
+        <div class="info-block">
+          <div class="info-block-title">
+            <span class="info-icon">◼</span> 신청 방법
+          </div>
+          <div class="info-row">
+            <span class="info-label">방문·우편</span>
+            <span class="info-value">남양주시 경춘로 522, 3층 취득세과<br><span class="info-sub">(다산동, 남양주시청 제2청사)</span></span>
+          </div>
+        </div>
+
+        <!-- 구비서류 -->
+        <div class="info-block">
+          <div class="info-block-title">
+            <span class="info-icon">◼</span> 구비서류
+          </div>
+          <div class="doc-list">
+            <div class="doc-item"><span class="doc-num">①</span> 지방세 감면신청서</div>
+            <div class="doc-item"><span class="doc-num">②</span> 지방세 경정청구서</div>
+            <div class="doc-item"><span class="doc-num">③</span> 가족관계증명서(상세)</div>
+            <div class="doc-item"><span class="doc-num">④</span> 주민등록등본 및 초본</div>
+            <div class="doc-item"><span class="doc-num">⑤</span> (환급받을) 통장 사본</div>
+            <div class="doc-item"><span class="doc-num">⑥</span> 지방세환급금 양도 요구서<br><span style="font-size:11.5px;color:#999;">(공동명의 시 필요)</span></div>
+            <div class="doc-item"><span class="doc-num">⑦</span> 신분증 사본<br><span style="font-size:11.5px;color:#999;">(공동명의 시 각각 필요)</span></div>
+          </div>
+        </div>
+
+        <!-- 문의처 -->
+        <div class="info-block info-block-contact">
+          <div class="info-block-title">
+            <span class="info-icon">◼</span> 문의처
+          </div>
+          <div class="contact-row">
+            <div class="contact-dept">취득세과 일반세무조사팀</div>
+            <div class="contact-tel">
+              <a href="tel:031-590-4545">031-590-4545</a> ·
+              <a href="tel:031-590-4365">4365</a> ·
+              <a href="tel:031-590-2207">2207</a> ·
+              <a href="tel:031-590-4394">4394</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-dept">의회법무과 납세자보호관</div>
+            <div class="contact-tel">
+              <a href="tel:031-590-3989">031-590-3989</a> ·
+              <a href="tel:031-590-7318">7318</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="disclaimer">
+          ※ 본 자가진단표는 참고자료이며, 최종 감면 및 환급 여부는 제출서류 검토 후 관계법령에 따라 결정됩니다.
+        </div>
+      </div>
+    </div>
+
+    <!-- 불합격(신청 불가) -->
+    <div id="result-fail" style="display:none">
+      <div class="result-fail">
+        <div class="result-icon">❌</div>
+        <h2>감면 신청 요건 미충족</h2>
+        <p>아래 항목이 충족되지 않아 현재 감면 신청이 어렵습니다.</p>
+      </div>
+      <div class="result-body">
+        <h3>미충족 항목</h3>
+        <ul class="fail-list" id="fail-list"></ul>
+        <div class="disclaimer">
+          ※ 구체적인 사안에 따라 판단이 달라질 수 있으므로, 취득세과 담당자에게 문의하시기 바랍니다.
+        </div>
+      </div>
+    </div>
+
+    <!-- 주의(추징 위험) -->
+    <div id="result-caution" style="display:none">
+      <div class="result-caution">
+        <div class="result-icon">⚠️</div>
+        <h2>의무사항 미이행 — 추징 주의</h2>
+        <p>자격 요건은 충족되나, 감면 후 의무사항 위반으로<br>감면세액이 <strong>추징될 위험</strong>이 있습니다.</p>
+      </div>
+      <div class="result-body">
+        <h3>추징 위험 항목</h3>
+        <ul class="fail-list" id="caution-list"></ul>
+
+      </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetAll()">↺ 처음부터 다시 진단하기</button>
+  </div>
+
+  <div class="footer">
+    남양주시 취득세과<br>
+    본 자가진단표는 참고자료이며, 최종 감면 및 환급 여부는 제출서류 검토 후 관계법령에 따라 결정됩니다.
+  </div>
+</div>
+
+<script>
+  // ─── 데이터 ───────────────────────────────────────────
+  const TOTAL = 8;
+  const answers = {}; // { 1: true/false, ... }
+
+  const REASONS = {
+    1: {
+      label: '자녀 출산일 요건 미충족',
+      reason: '2024. 1. 1. 이후 출생한 자녀가 아닌 경우 감면 적용 불가 (지특법 §36의5①)'
+    },
+    2: {
+      label: '상시 거주 목적 요건 미충족',
+      reason: '해당 자녀와 상시 거주할 목적으로 취득한 주택이 아닌 경우 감면 적용 불가'
+    },
+    3: {
+      label: '주택 취득 시기 요건 미충족',
+      reason: '취득일이 2024. 1. 1. 이전이거나, 출산일 전 1년 초과 또는 출산일로부터 5년 경과 후 취득 시 감면 불가'
+    },
+    4: {
+      label: '취득가액 요건 미충족',
+      reason: '취득 당시 가액이 12억 원을 초과하는 주택은 감면 대상에서 제외됨'
+    },
+    5: {
+      label: '1가구 1주택 요건 미충족',
+      reason: '취득 당시 1가구 1주택이 아니고, 취득일로부터 3개월 내 1가구 1주택이 되지 않은 경우 감면 불가'
+    },
+    6: {
+      label: '중복 감면 신청',
+      reason: '동일 자녀에 대해 이미 다른 주택으로 감면을 받은 경우, 동일 자녀에 대한 중복 감면 신청 불가'
+    },
+    7: {
+      label: '3개월 내 입주 의무 미이행',
+      reason: '취득일(또는 출산일)로부터 3개월 내 자녀와 상시 거주 미개시 시 감면세액 추징 대상'
+    },
+    8: {
+      label: '3년 거주 의무 위반',
+      reason: '자녀와 3년간 거주 의무 기간 중 매각·증여·임대 등 타 용도 사용 시 감면세액 추징 대상'
+    }
+  };
+
+  // ─── 핵심 로직 ────────────────────────────────────────
+  function answer(num, value) {
+    answers[num] = value;
+
+    // 버튼 active 처리
+    const item = document.getElementById('item-' + num);
+    item.querySelectorAll('.btn-yes').forEach(b => b.classList.toggle('active', value === true));
+    item.querySelectorAll('.btn-no').forEach(b => b.classList.toggle('active', value === false));
+
+    // 이유 박스 표시
+    const reasonBox = document.getElementById('reason-' + num);
+    if (reasonBox) {
+      reasonBox.classList.toggle('show', value === false);
+    }
+
+    updateProgress();
+    evaluateResult();
+  }
+
+  function updateProgress() {
+    const done = Object.keys(answers).length;
+    document.getElementById('progress-text').textContent = done + ' / ' + TOTAL + ' 완료';
+    document.getElementById('progress-fill').style.width = (done / TOTAL * 100) + '%';
+  }
+
+  function evaluateResult() {
+    const done = Object.keys(answers).length;
+    const panel = document.getElementById('result-panel');
+
+    // 8문항 모두 답변 완료 시에만 결과 표시
+    if (done < TOTAL) {
+      panel.classList.remove('show');
+      return;
+    }
+
+    panel.classList.add('show');
+
+    // 자격 요건(1~6) 미충족 항목
+    const qualFails = [1,2,3,4,5,6].filter(n => answers[n] === false);
+    // 의무사항(7~8) 미이행 항목
+    const dutyFails = [7,8].filter(n => answers[n] === false);
+
+    document.getElementById('result-pass').style.display = 'none';
+    document.getElementById('result-fail').style.display = 'none';
+    document.getElementById('result-caution').style.display = 'none';
+
+    if (qualFails.length > 0) {
+      // 자격 미충족
+      document.getElementById('result-fail').style.display = 'block';
+      const list = document.getElementById('fail-list');
+      list.innerHTML = qualFails.map(n =>
+        `<li><div>
+          <strong>${n}번 — ${REASONS[n].label}</strong>
+          <div class="fail-reason">${REASONS[n].reason}</div>
+        </div></li>`
+      ).join('');
+    } else if (dutyFails.length > 0) {
+      // 의무 미이행 (추징 위험)
+      document.getElementById('result-caution').style.display = 'block';
+      const list = document.getElementById('caution-list');
+      list.innerHTML = dutyFails.map(n =>
+        `<li><div>
+          <strong>${n}번 — ${REASONS[n].label}</strong>
+          <div class="fail-reason">${REASONS[n].reason}</div>
+        </div></li>`
+      ).join('');
+    } else {
+      // 모두 충족
+      document.getElementById('result-pass').style.display = 'block';
+    }
+
+    // 결과 패널로 스크롤
+    setTimeout(() => {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  function resetAll() {
+    // 답변 초기화
+    for (const k in answers) delete answers[k];
+
+    // 버튼 active 해제
+    document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+
+    // 이유 박스 숨기기
+    document.querySelectorAll('.reason-box').forEach(b => b.classList.remove('show'));
+
+    // 결과 패널 숨기기
+    document.getElementById('result-panel').classList.remove('show');
+
+    // 진행 바 초기화
+    updateProgress();
+
+    // 맨 위로 스크롤
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
